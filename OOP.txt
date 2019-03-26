@@ -1,0 +1,241 @@
+OBJECT ORIENTED PROGRAMMING CODES
+
+THIS METHOD
+public class Tish {
+    
+    private  int x,y;
+    private String names, name;
+    
+    public Tish(){
+        this(0,0,"Jim","Clyde");
+    }
+    public Tish(String names, String name){
+        this(0,0, names, name);
+    }
+    
+    public Tish(int x, int y, String names, String name){
+        this.x = x;
+        this.y = y;
+        this.names = names;
+        this.name = name;
+    }
+    
+    void display(){
+        System.out.println("Name = " + names + " " + name + "Number = " + x + " " + y);
+    }
+    public static void main(String[] args) {
+        Tish t1 = new Tish();
+        System.out.println(t1.x + " " + t1.y + " " + t1.names + " " + t1.name);
+        Tish t2 = new Tish("Hanabi", "Higanbana");
+        System.out.println(t2.x + " " + t2.y + " " + t2.names + " " + t2.name);
+    }
+    
+}
+
+OUTPUT
+
+0 0 Jim Clyde
+0 0 Hanabi Higanbana
+
+---------------------------------------------------------------------------------------------------
+STATIC
+
+public class Sthatic {
+    
+    static String car = "Toyota";
+    
+    static void changeCar(){
+        car = "Ford";
+    }
+   
+    static void changeCar2(){
+        car = "Honda";
+    }
+    
+    public static void main(String[] args) {
+        Sthatic s1 = new Sthatic();
+        System.out.println(car);
+        Sthatic.changeCar();
+        System.out.println("--Changed Value--");
+        Sthatic s2 = new Sthatic();
+        System.out.println(car);
+        Sthatic.changeCar2();
+        System.out.println("--Changed Value--");
+        Sthatic s3 = new Sthatic();
+        System.out.println(car);   
+    }
+}
+
+OUTPUT
+
+Toyota
+--Changed Value--
+Ford
+--Changed Value--
+Honda
+
+---------------------------------------------------------------------------
+
+OBJECT PASS
+
+public class ObjectPass {
+    int x,y,t;
+    
+    ObjectPass(int j, int c, int b){
+       x = j;
+       y = c;
+       t = b;
+    }
+    
+    boolean compare(ObjectPass m){
+        return(m.x == x && m.y == y && m.t == t);
+    }
+    
+}
+
+class Object{
+        public static void main(String[] args) {
+        ObjectPass ob1 = new ObjectPass(5,5,5);
+        ObjectPass ob2 = new ObjectPass(5,5,5);
+        System.out.println("Check if ob1 == ob2 : " + ob1.compare(ob2));
+    }
+ }
+ 
+
+OUTPUT
+
+Check if ob1 == ob2 : true
+
+--------------------------------------------------------------------------------
+
+package quiz;
+import java.util.*;
+public class Date {
+    int month,day,year;
+    
+    public Date(){
+        
+    }
+    
+    public Date(int month, int day, int year){
+        this.month = month;
+        this.day = day;
+        this.year = year;
+    }
+    
+    public void setMonth(int m){
+        month = m;
+    }
+    public void setYear(int y){
+        year = y;
+    }
+    public void setDay(int d){
+        day = d;
+    }
+    public void getMonth(){
+         System.out.println("Month : " + month);
+    }
+    public void getYear(){
+         System.out.println("Year : " + year);
+    }
+    public void getDay(){
+         System.out.println("Day : " + day);
+    }
+    
+    void displayDate(){
+        System.out.println(month + "/" + day + "/" + year);
+    }
+    
+}
+class DateTest{
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Date dt = new Date();
+        int mm,yy,dd;
+        System.out.println("Enter Day : ");
+        dd = in.nextInt();
+        dt.setDay(dd);
+        System.out.println("Enter Month : ");
+        mm = in.nextInt();
+        dt.setMonth(mm);
+        System.out.println("Enter Year : ");
+        yy = in.nextInt();
+        dt.setYear(yy);
+        
+        dt.getDay();
+        dt.getMonth();
+        dt.getYear();
+        dt.displayDate();
+        
+        
+        
+    }
+}
+
+OUTPUT
+
+Enter Day : 
+10
+Enter Month : 
+22
+Enter Year : 
+1999
+Day : 10
+Month : 22
+Year : 1999
+22/10/1999
+
+--------------------------------------------------------------------------
+
+package quiz;
+
+public class SavingAccount {
+    static double annualInterestRate = 0.04;
+    private double savingsBalance;
+    
+    SavingAccount(double c){
+       savingsBalance = c;
+    }
+    
+    
+    public double calculateMonthlyInterest(double z) {
+        double temp = z * annualInterestRate / 12;
+        savingsBalance = temp + z;
+        System.out.println("Savings Balance: " + savingsBalance);
+        return temp;
+    }
+     
+    static void modifyInterestRate(){
+        annualInterestRate = 0.05;
+    }
+}
+
+class Pass{
+    public static void main(String[] args) {
+        SavingAccount saver1 = new SavingAccount(2000.00);
+        SavingAccount saver2 = new SavingAccount(3000.00);
+
+        System.out.println("Saver 1 Annual Interest Rate 4%: ");
+        saver1.calculateMonthlyInterest(2000.00);
+        System.out.println("Saver 2 Annual Interest Rate 4%: ");
+        saver2.calculateMonthlyInterest(3000.00);
+        SavingAccount.modifyInterestRate();
+        System.out.println("Saver 1 Annual Interest Rate 5%: ");
+        saver1.calculateMonthlyInterest(2000.00);
+        System.out.println("Saver 2 Annual Interest Rate 5%: ");
+        saver2.calculateMonthlyInterest(3000.00);
+        
+        
+    }
+}
+
+OUTPUT
+
+Saver 1 Annual Interest Rate 4%: 
+Savings Balance: 2006.6666666666667
+Saver 2 Annual Interest Rate 4%: 
+Savings Balance: 3010.0
+Saver 1 Annual Interest Rate 5%: 
+Savings Balance: 2008.3333333333333
+Saver 2 Annual Interest Rate 5%: 
+Savings Balance: 3012.5

@@ -1,0 +1,110 @@
+
+package quiz;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+public class ArrayLi {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        
+        /* Array List */ 
+        
+        ArrayList<String> legends = new ArrayList<>(22000);
+        System.out.println("Array is Empty : " + legends.isEmpty());
+        System.out.println("• Elements of ArrayList •");
+        legends.add("Zilong");
+        legends.add("Hanabi");
+        legends.add("Zhask");
+        legends.add("Hylos");
+        legends.add("Roger");
+        
+         
+        for(int x = 0; x<legends.size(); x++){
+             System.out.println("Element" +"[" + x + "] : " + legends.get(x));
+        }
+        System.out.println("Best Hero : " + legends.get(1));
+        System.out.println(legends.get(0) + " has been slain ");
+        legends.remove(0);
+        
+        String p = legends.set(0, "Badang");
+        for(int x = 0; x<legends.size(); x++){
+             System.out.println("Element" +"[" + x + "] : " + legends.get(x));
+        }
+        System.out.println("New Hero has been Recruited : " + legends.get(0));
+        
+        
+        /* Linked List */ 
+        System.out.println("• Linked List •");
+        LinkedList<String> link = new LinkedList<>(legends);
+        ArrayList <String> type = new ArrayList<>(22000);
+        System.out.println("Linked List Size : " + link.size());
+        System.out.println(link);
+        
+        type.add("Marksman");
+        type.add("Tank");
+        type.add("Fighter");
+        type.add("Mage");
+        type.add("Support");
+        
+        System.out.println("(HERO) " + link.get(0) + " = " + "(TYPE) "  + type.get(2));
+         
+    }  
+}
+OUTPUT
+
+Array is Empty : true
+• Elements of ArrayList •
+Element[0] : Zilong
+Element[1] : Hanabi
+Element[2] : Zhask
+Element[3] : Hylos
+Element[4] : Roger
+Best Hero : Hanabi
+Zilong has been slain 
+Element[0] : Badang
+Element[1] : Zhask
+Element[2] : Hylos
+Element[3] : Roger
+New Hero has been Recruited : Badang
+• Linked List •
+Linked List Size : 4
+[Badang, Zhask, Hylos, Roger]
+(HERO) Badang = (TYPE) Fighter
+
+----------------------------------------------------------------
+
+import java.util.ArrayList;
+public class Words {    
+   public static void replace4(ArrayList<String> o) {
+ 
+        for (int x = 0; x < o.size(); x++) {
+            String value = o.get(x);
+            if (value.length() == 4) {
+                o.add(x, "****");
+                x++;
+            }
+        }
+        System.out.println(o);
+ 
+    }
+   
+    public static void main(String[] args) {
+        ArrayList<String> words = new ArrayList<>(22000);
+        words.add("four");
+        words.add("score");
+        words.add("asnd");
+        words.add("even");
+        replace4(words);
+       
+    }
+}
+
+OUTPUT
+
+[****, four, score, ****, asnd, ****, even]
+
+----------------------------------------------------
+
+
+
+

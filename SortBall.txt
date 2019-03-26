@@ -1,0 +1,51 @@
+package balls;
+import java.util.ArrayList;
+class Balls {
+    int MagicNumber;
+    
+    public void setMagicNumber(int x){
+        this.MagicNumber = x;
+    }
+    
+    public void PrintNumber(ArrayList<Integer> y){
+                    int temp = 0;
+            for(int x = 0; x<y.size()-1; x++){
+                for(int z = x+1; z<y.size(); z++){
+                    if(y.get(x) > (y.get(z))){
+                    temp = y.get(x);
+                    y.set(x, y.get(z));
+                    y.set(z, temp);
+                }
+            }      
+        }
+    }
+}
+
+package balls;
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in); 
+        Balls testMagicNumber = new Balls();
+        ArrayList<Integer> num = new ArrayList<Integer>();
+        num.add(8);
+        num.add(4);
+        num.add(22);
+        num.add(15);
+        num.add(26);
+        testMagicNumber.PrintNumber(num);
+              for(int r =0; r<num.size(); r++){
+            System.out.println(num.get(r));
+        }
+    }
+} 
+
+OUTPUT
+
+4
+8
+15
+22
+26
